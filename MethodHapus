@@ -1,0 +1,31 @@
+    //method hapus untuk menghapus list dari my list box
+    private void hapus()
+    {
+        String[] akhir = {"YA","TIDAK"};
+        int ending = JOptionPane.showOptionDialog(
+                null, "Yakin dihapus dari list?" //pesan
+                ,"DELETE" //Judul di Title Bar
+                ,JOptionPane.YES_NO_OPTION //Tipe pilihan
+                ,JOptionPane.PLAIN_MESSAGE //Tipe Pesan
+                ,null,akhir,null //Default Button
+                );
+        switch (ending)
+        {
+            case 0:
+                try
+                {
+                    int posisi = jList1.getSelectedIndex();
+                    model.remove(posisi);
+                    jLabel5.setText("Berhasil hapus lagu dari playlist !");
+                }catch(ArrayIndexOutOfBoundsException ai)
+                {
+                    jLabel5.setText("Gagal Maning ! Gagal Maning !");
+                    JOptionPane.showMessageDialog(null,"Pilih dulu dong lagu yang mau dihapus !");
+                }
+                break;
+            case 1:
+            case -1:
+            default:
+                break;
+        } 
+    }
