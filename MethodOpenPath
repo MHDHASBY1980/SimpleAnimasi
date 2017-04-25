@@ -1,0 +1,23 @@
+    //method untuk mengambil file
+    private String OpenPath()
+    {
+        jfc.setCurrentDirectory(new File("."));
+        jfc.setFileFilter(new javax.swing.filechooser.FileFilter() {
+            @Override
+            public boolean accept(File f) {
+                return f.getName().toLowerCase().endsWith(".wav")
+                        ||f.isDirectory();
+            }
+
+            @Override
+            public String getDescription() {
+                return "WAV, MIDI Musics";
+            }
+        });
+            if(jfc.showOpenDialog(jfc)==JFileChooser.APPROVE_OPTION)
+            {
+                return jfc.getSelectedFile().getPath();
+            }
+        return "";
+    }
+    
