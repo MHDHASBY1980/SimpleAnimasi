@@ -1,0 +1,27 @@
+        // when you click play me !:
+        if(evt.getActionCommand().equalsIgnoreCase("Play Me !"))
+        {
+            try{
+                mainkan();
+                jLabel5.setText(jList1.getSelectedValue().toString());
+                jButton1.setText("Stop Me !");
+                jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Stop.png")));
+                jButton1.setToolTipText("Stop the Music !");
+            }catch (NullPointerException npe)
+            {
+                jLabel5.setText("Gagal Maning ! Gagal Maning !");
+                JOptionPane.showMessageDialog(null,"Pilih dulu lagu yang akan dimainkan !");
+            }
+        }
+        //when you click Stop Me ! :
+        if(evt.getActionCommand().equalsIgnoreCase("Stop Me !"))
+        {
+            playerSS.stop();
+            jLabel5.setText("Berhenti..");
+            jButton1.setText("Play Me !");
+            jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/next.png")));
+            jPanel5.remove(controls);
+            jButton1.setToolTipText("Play the music !");
+        }
+        
+    } 
