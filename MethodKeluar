@@ -1,0 +1,21 @@
+    //method untuk keluar dari program
+    private void keluar()
+    {
+        String[] akhir = {"YA","TIDAK"};
+        int ending = JOptionPane.showOptionDialog(null, "Yakin Mau Keluar?"//Pesan
+                    ,"KELUAR"//Judul di TittleBar
+                    ,JOptionPane.YES_NO_OPTION //Tipe pilihan
+                    ,JOptionPane.PLAIN_MESSAGE //Tipe Pesan
+                    ,null,akhir,null //Default Button
+                    );
+        switch(ending)
+        {
+            case 0:
+                System.exit(0);
+                break;
+            case 1:
+            case -1:
+            default:
+                break; 
+        }
+    }
