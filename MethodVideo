@@ -1,0 +1,55 @@
+    //show video
+    
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+        throw new UnsupportedOperationException("Not Supported Yet");
+    }
+    
+    @Override
+    public void controllerUpdate(ControllerEvent ce)
+    {
+        try
+        {
+            Container con = getContentPane();
+            if (ce instanceof RealizeCompleteEvent){
+                Component visualcomponent = player.getVisualComponent();
+                if(visualcomponent != null){
+                    con.add(visualcomponent,BorderLayout.CENTER);
+                    
+                }Component controlcom = player.getControlPanelComponent();
+                if (controlcom != null){
+                    con.add(controlcom,BorderLayout.SOUTH);
+                } con.doLayout();
+            }
+        } catch(Exception e){
+            
+        }
+        
+    }
+    private void getFile()
+    {
+        try
+        {
+            JFileChooser choose = new JFileChooser();
+            choose.showOpenDialog(this);
+            file = choose.getSelectedFile();
+            if (!file.exists()){
+                throw new FileNotFoundException();
+            }
+        } catch(Exception e){
+            
+        };
+    }
+    
+    private void createFile(){
+        try
+        {
+            player = Manager.createRealizedPlayer(file.toURL());
+            player.addControllerListener((ControllerListener) this);
+            player.start();
+            player.realize();
+        } catch(Exception e){
+            
+        }
+    }
