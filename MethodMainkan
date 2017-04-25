@@ -1,0 +1,13 @@
+void mainkan()
+    {
+        String main = jList1.getSelectedValue().toString();
+        Manager.setHint(Manager.LIGHTWEIGHT_RENDERER,true);
+        try
+        {
+            playerSS = Manager.createRealizedPlayer(new URL("file",null,main));
+            controls = playerSS.getControlPanelComponent();
+            jPanel5.add(controls, BorderLayout.SOUTH); //untuk diisi oleh slider (waktu main lagu)
+            playerSS.start();
+        }catch(Exception ex){
+        }
+    }
