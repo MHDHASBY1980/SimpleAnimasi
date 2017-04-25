@@ -1,0 +1,7 @@
+        // when you want to add the playlist:
+        int posisi = jList1.getModel().getSize();
+        String text = OpenPath();
+        model.add(posisi, text);
+        jList1.setModel(model);
+        jLabel5.setText("Berhasil menambah list lagu...");
+    }
