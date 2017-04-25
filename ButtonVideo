@@ -1,0 +1,8 @@
+        // when you want to take a video
+        try
+        {
+            getFile();
+            createFile();
+        } catch (Exception e)
+            {
+            }
