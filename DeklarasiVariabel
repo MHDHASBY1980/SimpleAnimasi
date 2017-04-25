@@ -1,0 +1,8 @@
+public Player playerSS;
+    DefaultListModel model = new DefaultListModel();
+    private String[] txt;
+    private JFileChooser jfc = new JFileChooser();
+    private JFrame jf = new JFrame();
+    private Component controls;
+    private FileNameExtensionFilter textfilter = new FileNameExtensionFilter("WAV Player","wav","WAV");
+    private File file;
