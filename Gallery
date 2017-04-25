@@ -1,0 +1,16 @@
+        // when you browse your image
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG, GIF, and PNG Images", "jpg", "gif","png");
+        chooser.setFileFilter(filter);
+        
+        chooser.showOpenDialog(null);
+        File file = chooser.getSelectedFile();
+        
+        try{
+            Image image = ImageIO.read(file);
+            ImageIcon imageIcon = new ImageIcon(image.getScaledInstance(289, 233, Image.SCALE_DEFAULT));
+           
+            jLabel9.setIcon(imageIcon);
+            jLabel9.setText("");
+        }catch (Exception e){
+        }
